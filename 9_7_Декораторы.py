@@ -1,7 +1,11 @@
 def is_prime(func):
     def wrapper(*args):
         res = func(*args)
-        if res % 2:
+        is_prime = 0
+        for i in range(2, (res // 2) + 1):
+            if res % i == 0:
+                is_prime += 1
+        if is_prime == 0:
             print('Простое')
         else:
             print('Составное')
